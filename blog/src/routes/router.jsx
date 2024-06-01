@@ -17,11 +17,14 @@ const router = createBrowserRouter([
             {
                 path: '/posts',
                 element: <PostsListPage />,
+                // 페이지를 그리기 전 실행할 작업
                 loader: postListPageLoader,
             },
             {
                 path: '/posts/:postId',
                 element: <PostDetailPage />,
+                // loader: (someObj) => {someObj.params.postId} 이기 때문에
+                // loader: ({params})=> {params.postId} 으로 구조 분해 가능
                 loader: postDetailPageLoader,
             },
         ],

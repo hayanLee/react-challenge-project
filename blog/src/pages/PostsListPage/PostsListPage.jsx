@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from 'react-router-dom';
 
 export default function PostsListPage() {
+    console.log('리스트페이지 렌더링');
     const posts = useLoaderData();
     return (
         <>

@@ -1,6 +1,6 @@
 export default async function postDetailPageLoader({ params }) {
     const url = `https://jsonplaceholder.typicode.com/posts/${params.postId}`;
-    const response = await fetch(url);
-    const data = await response.json();
+    const res = await fetch(url);
+    const data = res.json();
     return data;
 }
