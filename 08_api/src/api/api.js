@@ -1,17 +1,12 @@
-const BASE_URL = 'https://api.ballang.yoojinyoung.com';
+import axios from 'axios';
 
-export async function getProduct(productId) {
-    const endpoint = `${BASE_URL}/products/${productId}`;
-    const res = await fetch(endpoint);
-    const data = await res.json();
+export const BASE_URL = 'https://api.ballang.yoojinyoung.com';
+// export const client = axios.create({ baseURL: BASE_URL });
+export const client = axios.create({
+    baseURL: BASE_URL,
+    headers: { Authorization: 'Bearer token!!' },
+});
 
-    return data;
-}
-
-export async function getBrands() {
-    const endpoint = `${BASE_URL}/brands`;
-    const res = await fetch(endpoint);
-    const data = await res.json();
-
-    return data;
-}
+export const updateToken = (token) => {
+    client.defaults.headers.common.Authorization = token ? `Bearer ${token}!` : '';
+};
