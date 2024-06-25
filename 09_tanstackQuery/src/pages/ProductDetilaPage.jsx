@@ -5,7 +5,7 @@ import Page from '../components/Page';
 
 function ProductDetilaPage() {
     const params = useParams();
-    const productId = params.productId;
+    const { productId } = params;
 
     const {
         data: product,

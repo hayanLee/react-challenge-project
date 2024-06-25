@@ -10,14 +10,10 @@ function TodoPage() {
 
     // isPending : 통신 여부
     const { isPending, mutate } = useMutation({
-        mutationFn: (...arg) => {
-            console.log(arg);
-            axios.post(ENDPOINT, { value });
-        },
-
-        onSuccess: (mutationResult) => {
-            // 인자로 mutationFn의 반환값 전달
-            console.log(mutationResult);
+        mutationFn: (variables) => axios.post(ENDPOINT, { value: variables }),
+        onSuccess: (...blabla) => {
+            // 인자로 mutationFn의 반환값 전달 (응답 데이터, 뮤테이션 호출 시 사용된 변수)
+            console.log('>>>>', blabla);
             alert('성공했어!');
         },
         onError: () => alert('실패했어 ㅠㅠ '),
@@ -27,7 +23,7 @@ function TodoPage() {
         try {
             mutate(inputRef.current.value); // mutationFn 실행
             // 1. mutationFn에 전달할 인자
-            // 2.useMutation에서 작성하지 않고, options로 {onSuccess : () => alert('성공했어!') } 전달 가능
+            // 2. useMutation에서 작성하지 않고, options로 {onSuccess : () => alert('성공했어!') } 전달 가능
 
             // const response = await axios.post(ENDPOINT, { value });
             // const data = response.data;
