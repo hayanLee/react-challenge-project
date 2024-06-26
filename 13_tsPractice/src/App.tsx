@@ -1,11 +1,16 @@
 import Counter from './components/Counter';
-import ModalControls from './components/Modal/ModalControls';
 
 function App() {
     return (
         <>
             <Counter />
-            <ModalControls />
+            {/* <ModalControls /> */}
+            {/* <QueryClientProvider client={queryClient}>
+                <PostForm />
+                <hr />
+                <Posts />
+                <ReactQueryDevtools />
+            </QueryClientProvider> */}
         </>
     );
 }

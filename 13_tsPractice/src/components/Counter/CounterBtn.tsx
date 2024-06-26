@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 
+// 유틸리티 타입 만들기
 // 이거랑 같은 역할을 하는게 PropsWithChildren
 // type VeryUsefulType<T> = T & { children: React.ReactNode };
 
